@@ -29,6 +29,7 @@ class _home_appState extends State<home_app> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey[900],
         body: SafeArea(
@@ -51,6 +52,13 @@ class _home_appState extends State<home_app> {
           backgroundColor: Colors.grey[900],
           elevation: 0,
           centerTitle: true,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  _clear_game();
+                },
+                icon: Icon(Icons.refresh)),
+          ],
           title: Text(
             'TicTacToe',
             style: TextStyle(
@@ -130,7 +138,6 @@ class _home_appState extends State<home_app> {
       if (list[0] == 'O') {
         setState(() {
           O = O + 1;
-
         });
       } else {
         setState(() {
@@ -225,7 +232,7 @@ class _home_appState extends State<home_app> {
       }
       return;
     }
-    if(hajmeArray==9){
+    if (hajmeArray == 9) {
       print('object');
     }
   }
@@ -237,10 +244,10 @@ class _home_appState extends State<home_app> {
       if (isTurnO) {
         list[item] = 'O';
         //har kasi bazi mikoneh ye meghdar besh ezafe mikoneh
-        hajmeArray=hajmeArray+1;
+        hajmeArray = hajmeArray + 1;
       } else {
         list[item] = 'X';
-        hajmeArray=hajmeArray+1;
+        hajmeArray = hajmeArray + 1;
       }
       isTurnO = !isTurnO;
       _get_winner();
@@ -294,5 +301,16 @@ class _home_appState extends State<home_app> {
         ),
       ],
     );
+  }
+
+  void _clear_game() {
+
+    setState(() {
+      for (int i = 0; i < list.length; i++) {
+        list[i] = '';
+      }
+    });
+    //bazi mireh az aval
+    hajmeArray=0;
   }
 }
