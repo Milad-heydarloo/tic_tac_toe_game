@@ -9,9 +9,11 @@ class home_app extends StatefulWidget {
 
 class _home_appState extends State<home_app> {
   bool isTurnO = true;
-
+var X='1';
+var O='1';
 //zakhireh bazi to array
   List<String> list = [
+    '',
     '',
     '',
     '',
@@ -34,8 +36,9 @@ class _home_appState extends State<home_app> {
                 height: 20,
               ),
               _getRow(),
+              _getRow2(),
               SizedBox(
-                height: 45,
+                height: 80,
               ),
               _get_border(),
               _get_Trun(),
@@ -90,7 +93,21 @@ class _home_appState extends State<home_app> {
             onTap: () {
               _click(index);
             },
+            //vase inke text ha biyan vasat
             child: Container(
+              //namayesh meghdar khoneh ro item
+              child: Center(
+                child: Text(
+                  list[index],
+                  style: TextStyle(
+                    //age in index az list ke tosh hastim == X hast
+                    //to brown ro bargardon : na ghermez
+                    color: list[index]== 'X' ? Colors.brown : Colors.red,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
               height: 100,
               width: 100,
               decoration: BoxDecoration(
@@ -105,14 +122,12 @@ class _home_appState extends State<home_app> {
 
   void _click(int item) {
     //ba in kar age khoneh khali nabashe barmigardeh
-    if(list[item]!='')
-      return;
+    if (list[item] != '') return;
     setState(() {
-
-      if(isTurnO){
-        list[item]='O';
-      }else{
-        list[item]='X';
+      if (isTurnO) {
+        list[item] = 'O';
+      } else {
+        list[item] = 'X';
       }
       isTurnO = !isTurnO;
       print(list.toString());
@@ -121,7 +136,6 @@ class _home_appState extends State<home_app> {
 
   Widget _getRow() {
     return Row(
-      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text(
@@ -134,6 +148,31 @@ class _home_appState extends State<home_app> {
         ),
         Text(
           'Player X',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _getRow2() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Text(
+          '$O',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+     
+        Text(
+          '$X',
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
