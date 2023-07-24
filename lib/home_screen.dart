@@ -63,16 +63,28 @@ class home_app extends StatelessWidget {
         // itemBuilder item haye maro misazeh
         // va to parametr index be itemi ke click shodeh eshareh dareh
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 2),
+          //handel click roye item ha
+          //wrap mikonim Container ro ba GestureDetector
+          return GestureDetector(
+            //on tap
+            onTap: () {
+              _click(index);
+            },
+            child: Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white, width: 2),
+              ),
             ),
           );
         },
       ),
     );
+  }
+
+  void _click(int item) {
+    print('$item');
   }
 
   Widget _getRow() {
