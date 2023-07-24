@@ -10,6 +10,18 @@ class home_app extends StatefulWidget {
 class _home_appState extends State<home_app> {
   bool isTurnO = true;
 
+//zakhireh bazi to array
+  List<String> list = [
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -92,9 +104,18 @@ class _home_appState extends State<home_app> {
   }
 
   void _click(int item) {
-    print('$item');
+    //ba in kar age khoneh khali nabashe barmigardeh
+    if(list[item]!='')
+      return;
     setState(() {
+
+      if(isTurnO){
+        list[item]='O';
+      }else{
+        list[item]='X';
+      }
       isTurnO = !isTurnO;
+      print(list.toString());
     });
   }
 
