@@ -8,16 +8,20 @@ class home_app extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.grey[900],
-        body: SafeArea(
-          child: Column(
+        body:
+           Column(
             children: [
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               _getRow(),
+              SizedBox(
+                height: 35,
+              ),
+              _get_border(),
             ],
           ),
-        ),
+
         appBar: AppBar(
           backgroundColor: Colors.grey[900],
           elevation: 0,
@@ -25,9 +29,34 @@ class home_app extends StatelessWidget {
           title: Text(
             'TicTacToe',
             style: TextStyle(
-                fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+                fontSize: 35, color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _get_border() {
+    //ba Expanded estefadeh shavad GridView.builder
+    return Expanded(
+      child: GridView.builder(
+        //migeh to har radif chanta bechinam barat => 3ta
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        //migeh kolan chanta khoneh mikhai
+        itemCount: 9,
+        // itemBuilder item haye maro misazeh
+        // va to parametr index be itemi ke click shodeh eshareh dareh
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            height: 100,
+            width: 100,
+            decoration: BoxDecoration(
+
+              border: Border.all(color: Colors.white,width: 2),
+            ),
+          );
+        },
       ),
     );
   }
