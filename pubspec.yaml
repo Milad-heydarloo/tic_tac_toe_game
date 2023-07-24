@@ -54,10 +54,10 @@ flutter:
 
 
   # example:
-  fonts:
-    - family: dm
-      fonts:
-        - asset: fonts/dm.ttf
+#  fonts:
+#    - family: dm
+#      fonts:
+#        - asset: fonts/dm.ttf
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

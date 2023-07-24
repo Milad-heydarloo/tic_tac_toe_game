@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe_game/home_screen.dart';
 
 void main() {
   runApp(_application());
@@ -14,6 +15,6 @@ class _application extends StatefulWidget {
 class _aApplicationState extends State<_application> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return home_app();
   }
 }
