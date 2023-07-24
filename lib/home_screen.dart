@@ -11,6 +11,7 @@ class _home_appState extends State<home_app> {
   bool isTurnO = true;
   int X = 0;
   int O = 0;
+  int hajmeArray = 0;
 
 //zakhireh bazi to array
   List<String> list = [
@@ -43,7 +44,6 @@ class _home_appState extends State<home_app> {
               ),
               _get_border(),
               _get_Trun(),
-
             ],
           ),
         ),
@@ -130,6 +130,7 @@ class _home_appState extends State<home_app> {
       if (list[0] == 'O') {
         setState(() {
           O = O + 1;
+
         });
       } else {
         setState(() {
@@ -224,7 +225,9 @@ class _home_appState extends State<home_app> {
       }
       return;
     }
-  
+    if(hajmeArray==9){
+      print('object');
+    }
   }
 
   void _click(int item) {
@@ -233,8 +236,11 @@ class _home_appState extends State<home_app> {
     setState(() {
       if (isTurnO) {
         list[item] = 'O';
+        //har kasi bazi mikoneh ye meghdar besh ezafe mikoneh
+        hajmeArray=hajmeArray+1;
       } else {
         list[item] = 'X';
+        hajmeArray=hajmeArray+1;
       }
       isTurnO = !isTurnO;
       _get_winner();
