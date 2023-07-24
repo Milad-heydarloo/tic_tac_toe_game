@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class home_app extends StatelessWidget {
+class home_app extends StatefulWidget {
   const home_app({super.key});
+
+  @override
+  State<home_app> createState() => _home_appState();
+}
+
+class _home_appState extends State<home_app> {
+  bool isTurnO = true;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +49,8 @@ class home_app extends StatelessWidget {
 
   Widget _get_Trun() {
     return Text(
-      'Trun X',
+      //goftam age isTurnO true bod 'Turn O' vagarna 'Turn X'
+      isTurnO ? 'Turn O' : 'Turn X',
       style: TextStyle(
         fontSize: 25,
         color: Colors.white,
@@ -85,6 +93,9 @@ class home_app extends StatelessWidget {
 
   void _click(int item) {
     print('$item');
+    setState(() {
+      isTurnO = !isTurnO;
+    });
   }
 
   Widget _getRow() {
