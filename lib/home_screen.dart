@@ -8,20 +8,21 @@ class home_app extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.grey[900],
-        body:
-           Column(
+        body: SafeArea(
+          child: Column(
             children: [
               SizedBox(
                 height: 20,
               ),
               _getRow(),
               SizedBox(
-                height: 35,
+                height: 45,
               ),
               _get_border(),
+              _get_Trun(),
             ],
           ),
-
+        ),
         appBar: AppBar(
           backgroundColor: Colors.grey[900],
           elevation: 0,
@@ -29,9 +30,23 @@ class home_app extends StatelessWidget {
           title: Text(
             'TicTacToe',
             style: TextStyle(
-                fontSize: 35, color: Colors.white, fontWeight: FontWeight.bold),
+              fontSize: 35,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _get_Trun() {
+    return Text(
+      'Trun X',
+      style: TextStyle(
+        fontSize: 25,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
@@ -52,8 +67,7 @@ class home_app extends StatelessWidget {
             height: 100,
             width: 100,
             decoration: BoxDecoration(
-
-              border: Border.all(color: Colors.white,width: 2),
+              border: Border.all(color: Colors.white, width: 2),
             ),
           );
         },
