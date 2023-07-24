@@ -43,6 +43,7 @@ class _home_appState extends State<home_app> {
               ),
               _get_border(),
               _get_Trun(),
+
             ],
           ),
         ),
@@ -135,7 +136,95 @@ class _home_appState extends State<home_app> {
           X = X + 1;
         });
       }
+      return;
     }
+    if (list[3] == list[4] && list[4] == list[5] && list[3] != '') {
+      if (list[3] == 'O') {
+        setState(() {
+          O = O = 1;
+        });
+      } else {
+        setState(() {
+          X = X + 1;
+        });
+      }
+      return;
+    }
+
+    if (list[6] == list[7] && list[7] == list[8] && list[6] != '') {
+      if (list[6] == 'O') {
+        setState(() {
+          O = O + 1;
+        });
+      } else {
+        setState(() {
+          X = X + 1;
+        });
+      }
+      return;
+    }
+
+    if (list[0] == list[3] && list[3] == list[6] && list[0] != '') {
+      if (list[0] == 'O') {
+        setState(() {
+          O = O + 1;
+        });
+      } else {
+        setState(() {
+          X = X + 1;
+        });
+      }
+      return;
+    }
+    if (list[1] == list[4] && list[4] == list[7] && list[1] != '') {
+      if (list[0] == '1') {
+        setState(() {
+          O = O + 1;
+        });
+      } else {
+        setState(() {
+          X = X + 1;
+        });
+      }
+      return;
+    }
+    if (list[2] == list[5] && list[5] == list[8] && list[2] != '') {
+      if (list[2] == 'O') {
+        setState(() {
+          O = O + 1;
+        });
+      } else {
+        setState(() {
+          X = X + 1;
+        });
+      }
+      return;
+    }
+    if (list[0] == list[4] && list[4] == list[8] && list[0] != '') {
+      if (list[0] == 'O') {
+        setState(() {
+          O = O + 1;
+        });
+      } else {
+        setState(() {
+          X = X + 1;
+        });
+      }
+      return;
+    }
+    if (list[2] == list[4] && list[4] == list[6] && list[2] != '') {
+      if (list[2] == 'O') {
+        setState(() {
+          O = O + 1;
+        });
+      } else {
+        setState(() {
+          X = X + 1;
+        });
+      }
+      return;
+    }
+  
   }
 
   void _click(int item) {
