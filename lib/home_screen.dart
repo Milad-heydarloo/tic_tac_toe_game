@@ -9,8 +9,9 @@ class home_app extends StatefulWidget {
 
 class _home_appState extends State<home_app> {
   bool isTurnO = true;
-var X='1';
-var O='1';
+  int X = 0;
+  int O = 0;
+
 //zakhireh bazi to array
   List<String> list = [
     '',
@@ -102,7 +103,7 @@ var O='1';
                   style: TextStyle(
                     //age in index az list ke tosh hastim == X hast
                     //to brown ro bargardon : na ghermez
-                    color: list[index]== 'X' ? Colors.brown : Colors.red,
+                    color: list[index] == 'X' ? Colors.amberAccent : Colors.red,
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                   ),
@@ -120,6 +121,23 @@ var O='1';
     );
   }
 
+  void _get_winner() {
+    //migim khoneh sefrom ba khoneh aval ham namand
+    //bad migam khoneh yek ba khoneh do ham namand
+    //bad migam sefr age poure shart paiin ro ejra kon
+    if (list[0] == list[1] && list[1] == list[2] && list[0] != '') {
+      if (list[0] == 'O') {
+        setState(() {
+          O = O + 1;
+        });
+      } else {
+        setState(() {
+          X = X + 1;
+        });
+      }
+    }
+  }
+
   void _click(int item) {
     //ba in kar age khoneh khali nabashe barmigardeh
     if (list[item] != '') return;
@@ -130,6 +148,7 @@ var O='1';
         list[item] = 'X';
       }
       isTurnO = !isTurnO;
+      _get_winner();
       print(list.toString());
     });
   }
@@ -170,7 +189,6 @@ var O='1';
             fontWeight: FontWeight.bold,
           ),
         ),
-     
         Text(
           '$X',
           style: TextStyle(
